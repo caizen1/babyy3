@@ -1,71 +1,102 @@
-# 🚀 Quick Start Guide
+# Quick Start Guide
 
-## Option 1: Easy Way (Recommended)
-Run the automated script:
-```powershell
-.\run-app.ps1
-```
+Get your Baby Recipe Generator up and running in 5 minutes!
 
-## Option 2: Manual Steps
+## Prerequisites
 
-### Step 1: Install Node.js
-1. Go to [nodejs.org](https://nodejs.org/)
-2. Download and install the LTS version
-3. **Restart PowerShell** after installation
+- Node.js 16+ installed
+- Spoonacular API key (free at https://spoonacular.com/food-api)
+- Firebase project (free at https://console.firebase.google.com/)
 
-### Step 2: Verify Installation
-```powershell
-node --version
-npm --version
-```
+## Step 1: Install Dependencies
 
-### Step 3: Install Dependencies
-```powershell
+```bash
 npm install
 ```
 
-### Step 4: Create Environment File
-Create a file named `.env` in your project folder with:
-```env
-VITE_SPOONACULAR_API_KEY=your_api_key_here
-PORT=3001
-NODE_ENV=development
+## Step 2: Configure Environment
+
+Run the setup script to configure your API keys:
+
+```bash
+npm run setup
 ```
 
-### Step 5: Start the Backend Server
-Open a **new PowerShell window** and run:
-```powershell
-npm run server
+Or manually create a `.env` file with your API keys (see `env.example`).
+
+## Step 3: Start the Application
+
+### Option A: Development Mode (Recommended)
+
+Terminal 1 - Start the backend:
+```bash
+npm start
 ```
 
-### Step 6: Start the Frontend
-In your **original PowerShell window**, run:
-```powershell
+Terminal 2 - Start the frontend:
+```bash
 npm run dev
 ```
 
-### Step 7: Open Your Browser
-Go to: http://localhost:5173
+### Option B: Production Mode
 
-## 🔧 Troubleshooting
+```bash
+npm run build
+npm start
+```
 
-### If you get "npm not recognized":
-- Node.js isn't installed or you need to restart PowerShell
+## Step 4: Access the App
 
-### If you get "port already in use":
-- Close other applications using port 3001 or 5173
-- Or restart your computer
+Open your browser and go to:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5000
 
-### If recipes don't load:
-- Check that the backend server is running (should show "Server running on port 3001")
-- Get a Spoonacular API key from [spoonacular.com/food-api](https://spoonacular.com/food-api)
+## Troubleshooting
 
-## 📱 What You'll See
-- A beautiful baby food recipe app
-- Input fields for ingredients, age, and allergens
-- Recipe cards with nutrition info and safety indicators
-- Even without API keys, you'll see mock recipes!
+### Common Issues
 
-## 🛑 How to Stop
-- Press `Ctrl+C` in both PowerShell windows
-- Or just close the PowerShell windows 
+1. **"Cannot find module" errors**
+   - Run `npm install` again
+   - Delete `node_modules` and run `npm install`
+
+2. **API key errors**
+   - Check your `.env` file exists and has correct values
+   - Verify your Spoonacular API key is valid
+   - Ensure Firebase project is set up correctly
+
+3. **Port already in use**
+   - Change the PORT in `.env` file
+   - Kill processes using ports 3000 or 5000
+
+4. **CORS errors**
+   - Ensure both frontend and backend are running
+   - Check that the backend is on port 5000
+
+### Getting API Keys
+
+#### Spoonacular API
+1. Go to https://spoonacular.com/food-api
+2. Sign up for free account
+3. Copy your API key from dashboard
+
+#### Firebase
+1. Go to https://console.firebase.google.com/
+2. Create new project
+3. Enable Firestore Database
+4. Add web app and copy config
+5. Update `.env` with Firebase values
+
+## Next Steps
+
+- Read the full [README.md](README.md) for detailed documentation
+- Check out the [deployment guide](README.md#deployment) to deploy online
+- Customize the app by modifying components in `src/components/`
+
+## Support
+
+If you encounter issues:
+1. Check the troubleshooting section above
+2. Review the full README.md
+3. Open an issue in the repository
+
+Happy cooking! 🍼👶 
